@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Careers | BuildTechIndia</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+    <style>
+        /* For Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 10px;
+  background: #222; /* Track color */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #adbcf3; /* Thumb color */
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b1c3ff; /* Thumb color on hover */
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #0037ff #222;
+}
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #000000;
+      --card-bg: #f9f9f9;
+      --header-bg: #333;
+      --footer-bg: #222;
+    }
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      background-attachment: fixed;
+      transition: background-color 0.3s, color 0.3s;
+    }
+     header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 60px;
+      width: 100%;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+       box-shadow:0px 0px 30px  rgba(227, 228, 237, 0.37);
+       backdrop-filter: blur(30px);  
+        border: 2px solid rgba(255,255, 255, .18); 
+      transition: background 0.4s ease, padding 0.3s ease;
+    }
+
+    header {
+        background: #fff;
+      animation: headerGradient 8s ease-in-out infinite alternate;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-radius: 0 0 18px 18px;
+      border: 1px solid rgba(255,255,255,0.18);
+      opacity: 0.98;
+    }
+
+    @keyframes headerGradient {
+      0% {
+        background-position: 0% 50%;
+      }
+      100% {
+        background-position: 100% 50%;
+      }
+    }
+
+    header.scrolled {
+      position: sticky;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 10px 40px;
+      backdrop-filter: blur(8px);
+    }
+
+    header .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    header .logo img {
+      height: 40px;
+    }
+
+    header .logo h1 {
+      color:red;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    nav {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+       background: rgba(255,255,255,0.10);
+      box-shadow: 0 4px 24px 0 rgba(31, 38, 135, 0.10);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.18);
+      opacity: 0.97;
+      padding: 2px 18px;
+    }
+
+    nav a {
+      color: rgb(0, 0, 0);
+      text-decoration: none;
+      padding: 8px 14px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    nav a {
+      position: relative;
+      overflow: hidden;
+    }
+     nav a::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(270deg, #565656, #4f4a4a, #3f3f3f, #303030);
+  background-size: 400% 400%;
+  animation: navUnderlineAnim 3s ease-in-out infinite;
+  transform: scaleX(0);
+  transition: transform 0.3s;
+  border-radius: 2px;
+}
+
+    nav a:hover::after, nav a:focus::after {
+      transform: scaleX(1);
+    }
+
+    nav a:hover {
+     color: rgb(0, 0, 0);
+    }
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .menu-toggle span {
+      background: rgb(0, 17, 255);
+      height: 2px;
+      width: 25px;
+      margin: 3px 0;
+    }
+.mobile-nav {
+  display: none;
+  flex-direction: column;
+  align-items: flex-start; /* Align all items to the left */
+  background: #151922;
+  position: fixed;
+  top: 0;
+  left: -320px;      /* Place off-canvas to the left */
+  right: auto;
+  height: 100vh;
+  min-height: 100vh;
+  width: 90vw;
+  max-width: 320px;
+  padding: 32px 16px 16px 16px;
+  border-radius: 0 8px 8px 0;
+  z-index: 3000;
+  transition: left 0.5s cubic-bezier(.77,0,.18,1), opacity 0.3s;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+  border: 1px solid rgba(255,255,255,0.18);
+  opacity: 0;
+  overflow-y: auto;
+  pointer-events: none;
+}
+
+.mobile-nav.show {
+  display: flex;
+  left: 0;           /* Slide in from the left */
+  opacity: 1;
+  animation: fadeLeftIn 0.5s cubic-bezier(.77,0,.18,1);
+  pointer-events: auto;
+}
+
+@keyframes fadeLeftIn {
+  from {
+    opacity: 0;
+    left: -80px;
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    left: 0;
+    filter: blur(0);
+  }
+}
+
+.mobile-nav a,
+.mobile-nav .nav-btn,
+.mobile-nav .dropdown-content button {
+  width: 100%;
+  text-align: left;
+  color: #fff !important;
+  font-size: 18px;
+  padding: 12px 8px;
+  margin: 0;
+  border-radius: 6px;
+  box-sizing: border-box;
+  background: none;
+  border: none;
+  font-weight: bold;
+  transition: background 0.2s, color 0.2s;
+}
+
+.mobile-nav .dropdown {
+  width: 100%;
+}
+
+.mobile-nav .dropdown-content {
+  position: static;
+  background: none;
+  box-shadow: none;
+  min-width: unset;
+  padding: 0;
+}
+
+.mobile-nav .dropdown-content button:hover,
+.mobile-nav .dropdown-content button.active-nav {
+  background: #E7E7E7;
+  color: #222 !important;
+}
+    .hero {
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      position: relative;
+      background:linear-gradient(#151922,rgba(146, 131, 131, 0.738)) , url('EWS1.PNG');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: #fff;
+      font-family: 'Arial', sans-serif;
+      animation: heroFadeIn 1.2s cubic-bezier(.23,1.01,.32,1) forwards;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Mobile fallback: disable parallax for mobile browsers */
+    @media (max-width: 1024px), (pointer: coarse) {
+      .hero {
+        background-attachment: scroll;
+      }
+    }
+
+    /* Mobile fallback: disable parallax for mobile browsers */
+    @media (max-width: 1024px), (pointer: coarse) {
+      .hero {
+        background-attachment: scroll;
+      }
+    }
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: rgb(255, 255, 255);
+  padding: 0 20px;
+  font-size: 30px;
+}
+
+.btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #ffcc00;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+    .btn {
+      background-color: #ffa006;
+      color: rgb(0, 0, 0);
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+    .btn:hover {
+      background-color: #3f8bfc;
+      transform: scale(1.05);
+    }
+    footer {
+      background-color: var(--footer-bg);
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    footer img {
+      width: 60px;
+      margin: 5px;
+      transform: scale(1.1);
+      border-radius: 10px;
+      transition: transform 0.3sec;
+    } 
+    footer img:hover {
+      transform: scale(1.2);
+    }
+.hero {
+  animation: zoomInOut 20s ease-in-out infinite;
+}
+     @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 1024px) {
+      nav {
+        display: none !important;
+      }
+    header .logo img {
+      height: 40px;
+    }
+
+    header .logo h1 {
+      color:rgb(255, 0, 0);
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 18px;
+      font-weight: bold;
+    }  footer > div {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    gap: 10px;
+    justify-content: flex-start;
+    align-items: center;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+  }
+  footer > div::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+  footer > div img {
+    min-width: 60px;
+    max-width: 90px;
+    height: auto;
+  }
+      .menu-toggle {
+        display: flex !important;
+      }
+      .mobile-nav {
+        display: none;
+      }
+      .mobile-nav.show {
+        display: flex !important;
+        left:0px !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header id="mainHeader">
+ <div class="logo">
+    <img src="WhatsApp Image 2025-07-07 at 15.43.31_d19d2746.jpg" alt="Logo" />
+    <h1 style="color: red;">Buildtech India Construction</h1>
+    
+  </div>
+  <div class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="mobileNav" tabindex="0">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+    <nav>
+      <a href="index.html">Home</a>
+        <a href="About2.html">About</a>
+      <a href="index.html#services">Services</a>
+      <a href="Project.html">Projects</a>
+      <a href="Careers.html">Careers</a>
+      <a href="Contact.html">Contact Us</a>
+      
+    </nav>
+    <div class="mobile-nav" id="mobileNav">
+<a href="Index.html">Home</a>
+  <a href="About2.html">About</a>
+<a href="#services">Services</a>
+<a href="Project.html">Projects</a>
+<a href="Careers.html">Careers</a>
+<a href="Contact.html">Contact Us</a>
+</div>
+  </header>     
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Careers at Buildtech India</h1>
+      <p>Grow your future with us. Build the nation with innovation.</p>
+    </div>
+  </section>
+
+  <section class="career-section" style="padding: 60px 20px; max-width: 1200px; margin: auto; font-family: 'Arial', sans-serif;">
+
+  <div class="career-block" data-aos="fade-up" data-aos-delay="100">
+    <h2 style="color: blue;">Grow Your Future With Us</h2>
+    <p>
+      At Buildtech India Construction, we are not just building structures—we are building careers. Our commitment to quality, safety, and sustainability has made us one of India’s most respected construction companies. We offer opportunities for professionals across all levels of expertise, from planning and design to execution and post-project evaluation. Our team is made up of civil engineers, architects, site supervisors, quantity surveyors, safety officers, and digital developers who work together to bring bold visions to life.
+    </p>
+    <p>
+      If you are driven by innovation and excellence, we invite you to be a part of our journey to transform India’s infrastructure landscape.
+    </p>
+  </div>
+
+  <div class="career-block" data-aos="fade-up" data-aos-delay="200">
+    <h2 style="color: blue;">Our Work Culture</h2>
+    <p>
+      At Buildtech, we value teamwork, integrity, and ownership. Every employee is encouraged to contribute ideas, solve problems creatively, and take initiative. We ensure a respectful and inclusive environment where every voice matters. Our open-door policy and flat communication structure foster transparency and trust among all levels of the organization.
+    </p>
+    <p>
+      We celebrate achievements—big or small—and conduct regular team-building activities, recognition programs, and leadership development workshops to keep our people engaged, motivated, and growing.
+    </p>
+  </div>
+
+  <div class="career-block" data-aos="fade-up" data-aos-delay="300">
+    <h2 style="color: blue;">Opportunities for Freshers & Interns</h2>
+    <p>
+      We believe in nurturing future talent by providing real-world exposure through internships, campus hiring, and apprentice programs. As an intern or fresher, you’ll work closely with experienced mentors on live projects, participate in training modules, and get hands-on experience in project coordination, software tools, and site visits.
+    </p>
+    <p>
+      Our goal is to help young professionals discover their strengths and develop into well-rounded industry leaders. Many of our current team leads started their journey here as interns—and you could be next.
+    </p>
+  </div>
+
+  <div class="career-block" data-aos="fade-up" data-aos-delay="400">
+    <h2 style="color: blue;">Why Join Us?</h2>
+    <p>
+      Working at Buildtech India Construction means being part of a legacy of excellence. We offer more than just jobs—we offer careers that grow with you. Our benefits include competitive compensation packages, health insurance, skill-based promotions, project-based incentives, and access to global certifications in construction management and safety.
+    </p>
+    <p>
+      With a diverse project portfolio—from high-rise buildings and industrial plants to smart city infrastructure—you will get the chance to challenge yourself, learn continuously, and make a measurable impact on India’s development.
+    </p>
+  </div>
+
+  <div class="career-block" data-aos="fade-up" data-aos-delay="500">
+    <h2 style="color: blue;">Ready to Apply?</h2>
+    <p>
+      We’re always on the lookout for passionate professionals who are ready to leave their mark on the world. Whether you’re an architect with vision, a civil engineer with grit, a developer with digital finesse, or a student eager to learn—we want to hear from you.
+    </p>
+    <p>
+      Explore our current job openings or send your resume to <strong>buildtechindia.pandey@gmail.com</strong>. You can also follow us on LinkedIn for job alerts and company updates. Join us—and let’s build a better tomorrow, together.
+    </p>
+  </div>
+  <button class="btn" onclick="alert('Apply via buildtechindia.pandey@gmail.com')">Apply Now</button>
+</section>
+
+</section>
+
+   <footer>
+    
+    
+        <div style="text-align: center; padding: 20px;">
+       
+       <!-- Google -->
+       <a href="http://www.hsccltd.co.in/" target="_blank">
+         <img src="HS.png" alt="Google" style="width:70px; margin: 0 10px;">
+        </a>
+        
+        <!-- LinkedIn -->
+      <a href="https://www.adani.com/" target="_blank">
+        <img src="AD.png" alt="LinkedIn" style="width:70px; margin: 0 10px;">
+      </a>
+  
+      <!-- Facebook -->
+      <a href="https://nbccindia.in/" target="_blank">
+        <img src="NB.png" alt="Facebook" style="width:70px; margin: 0 10px;">
+      </a>
+      <a href="https://www.auda.org.in/" target="_blank">
+        <img src="AO.png" alt="Facebook" style="width:70px; margin: 0 10px;">
+      </a>
+      <a href="https://nmcg.nic.in/" target="_blank">
+        <img src="NG.png" alt="Facebook" style="width:70px; margin: 0 10px;">
+      </a>
+      <a href="https://lsg.urban.rajasthan.gov.in/" target="_blank">
+        <img src="RA.png" alt="Facebook" style="width:70px; margin: 0 10px;">
+      </a>
+      <a href="https://www.gsrtc.in/" target="_blank">
+        <img src="GU.png" alt="Facebook" style="width:70px; margin: 0 10px;">
+      </a>
+   <a href="https://sportsauthorityofindia.nic.in/"><img src="loader.JPG" alt="SAI"></a>
+      <a href="https://www.concorindia.co.in/" target="_blank">
+        <img src="CO.png" alt="Facebook" style="width:70px; margin: 0 10px;">
+      </a>
+      <a href="https://epi.gov.in/" target="_blank">
+        <img src="EP.png" alt="Facebook" style="width:70px; margin: 0 10px;">
+      </a>
+      
+    </div>
+     <hr style="margin: 20px 0; border-color: #444;">
+    <p>© 2025 BuildTechIndia Construction. All rights reserved.</p>
+  </footer>
+  <button id="backToTop" style="display:none;position:fixed;bottom:40px;right:40px;z-index:3000;background:linear-gradient(90deg,#fc575e,#f7b42c);color:#fff;border:none;border-radius:50%;width:50px;height:50px;font-size:28px;box-shadow:0 2px 8px rgba(252,87,94,0.18);cursor:pointer;transition:background 0.3s,transform 0.3s;">
+  ↑
+</button>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+  const header = document.getElementById("mainHeader");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
+    }
+  });
+
+
+  // No JS parallax: background is fixed via CSS for classic parallax effect
+  </script>
+  <script>
+    // Menu toggle logic
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileNav = document.getElementById('mobileNav');
+    function closeMobileNav() {
+      mobileNav.classList.remove('show');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }
+    function openMobileNav() {
+      mobileNav.classList.add('show');
+      menuToggle.setAttribute('aria-expanded', 'true');
+    }
+    function toggleMenu() {
+      if (mobileNav.classList.contains('show')) {
+        closeMobileNav();
+      } else {
+        openMobileNav();
+      }
+    }
+    if (menuToggle && mobileNav) {
+      menuToggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        toggleMenu();
+      });
+      // Close menu when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!mobileNav.contains(e.target) && !menuToggle.contains(e.target)) {
+          closeMobileNav();
+        }
+      });
+      // Close menu when clicking a link
+      mobileNav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeMobileNav);
+      });
+      // Allow keyboard toggle
+      menuToggle.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleMenu();
+        }
+      });
+    }
+    AOS.init();
+    // Back to top button logic //
+    const backToTopBtn = document.getElementById('backToTop');
+window.addEventListener('scroll', function() {
+  if (window.scrollY > 200) {
+    backToTopBtn.style.display = 'block';
+  } else {
+    backToTopBtn.style.display = 'none';
+  }
+});
+backToTopBtn.onclick = function() {
+  window.scrollTo({top:0,behavior:'smooth'});
+};
+  </script>
+</body>
+</html>

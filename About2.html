@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>About Us | BuildTechIndia Construction</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+    <style>
+      :root {
+      --text-color: #ffffff;
+      --footer-bg: #111;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    } 
+    html, body {
+      height: 100%;
+    }
+    
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background-attachment: fixed;
+      color: #222;
+      transition: background 0.8s;
+    }
+    
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      box-shadow:0px 0px 30px  rgba(227, 228, 237, 0.37);
+      backdrop-filter: blur(30px);  
+      border: 2px solid rgba(255,255, 255, .18); 
+      transition: background 0.4s ease, padding 0.3s ease;
+    }
+    
+    header {
+     background: #fff;
+     animation: headerGradient 8s ease-in-out infinite alternate;
+     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+     backdrop-filter: blur(18px);
+     -webkit-backdrop-filter: blur(18px);
+     border-radius: 0 0 18px 18px;
+     border: 1px solid rgba(255,255,255,0.18);
+     opacity: 0.98;
+    }
+
+    @keyframes headerGradient {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    header.scrolled {
+      background-color: rgba(255, 255, 255, 0.7);
+      padding: 10px 30px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo img {
+      height: 40px;
+    }
+
+    .logo h1 {
+      color: red;
+      font-size: 24px;
+      font-family: 'Times New Roman', Times, serif;
+      font-weight: bold;
+    }
+
+     nav {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      flex-wrap: wrap;
+      background: rgba(255,255,255,0.10);
+      box-shadow: 0 4px 24px 0 rgba(31, 38, 135, 0.10);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.18);
+      opacity: 0.97;
+      padding: 2px 18px;
+    }
+    nav a {
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 10px 14px;
+      transition: background 0.3s;
+    }
+    
+    nav a {
+      position: relative;
+      overflow: hidden;
+    }
+    nav a::after {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(270deg, #565656, #4f4a4a, #3f3f3f, #303030);
+      background-size: 400% 400%;
+      animation: navUnderlineAnim 3s ease-in-out infinite;
+      transform: scaleX(0);
+      transition: transform 0.3s;
+      border-radius: 2px;
+    }
+    nav a:hover::after, nav a:focus::after {
+      transform: scaleX(1);
+    }
+    nav a:hover {
+      color: rgb(0, 0, 0);
+    }
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    } footer .partners {
+      background-color: var(--footer-bg);
+      color: white;
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 10px;
+      text-align: center;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none; /* Firefox */
+    }
+    footer .partners::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera */
+    }
+    .menu-toggle span {
+      background: rgb(0, 30, 255);
+      height: 2px;
+      width: 25px;
+      margin: 3px 0;
+    }
+    
+
+    .navMenu {
+      display: none;
+  flex-direction: column;
+  align-items: flex-start; /* Align all items to the left */
+  background: #151922;
+  position: fixed;
+  top: 0;
+  left: -320px;      /* Place off-canvas to the left */
+  right: auto;
+  height: 100vh;
+  min-height: 100vh;
+  width: 90vw;
+  max-width: 320px;
+  padding: 32px 16px 16px 16px;
+  border-radius: 0 8px 8px 0;
+  z-index: 3000;
+  transition: left 0.5s cubic-bezier(.77,0,.18,1), opacity 0.3s;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+  border: 1px solid rgba(255,255,255,0.18);
+  opacity: 0;
+  overflow-y: auto;
+  pointer-events: none;
+}
+
+.navMenu.show {
+  display: flex;
+  left: 0;           /* Slide in from the left */
+  opacity: 1;
+  animation: fadeLeftIn 0.5s cubic-bezier(.77,0,.18,1);
+  pointer-events: auto;
+}
+
+@keyframes fadeLeftIn {
+  from {
+    opacity: 0;
+    left: -80px;
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    left: 0;
+    filter: blur(0);
+  }
+}.navMenu a,
+.navMenu .nav-btn,
+.navMenu .dropdown-content button {
+  width: 100%;
+  text-align: left;
+  color: #fff !important;
+  font-size: 18px;
+  padding: 12px 8px;
+  margin: 0;
+  border-radius: 6px;
+  box-sizing: border-box;
+  background: none;
+  border: none;
+  font-weight: bold;
+  transition: background 0.2s, color 0.2s;
+}
+
+
+
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 35px;
+      left: 0;
+       background-color:  #E3DAC9;
+      backdrop-filter: blur(10px);
+      flex-direction: column;
+      min-width: 160px;
+      border-radius: 8px;
+      z-index: 2000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: flex;
+    }
+
+    .dropdown-content button {
+      background: none;
+      border: none;
+      color: #000;
+      text-align: left;
+      padding: 10px 14px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .dropdown-content button:hover,
+    .dropdown-content button.active-nav {
+     background: #E7E7E7;
+    }  /* For Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 10px;
+  background: #222; /* Track color */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #adbcf3; /* Thumb color */
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b1c3ff; /* Thumb color on hover */
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #0037ff #222;
+}
+
+
+   
+     /* ...existing code... */
+     .hero {
+       min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+   background:linear-gradient(#151922,rgba(146, 131, 131, 0.738)) ,url('EWS1.PNG ');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; }
+@media (max-width: 768px) {
+  .hero {
+    background-attachment: scroll !important;
+  }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  font-size: 40px;
+  font-weight: normal;
+  color: white;
+  font-family: 'Georgia', serif;
+  text-align: center;
+ 
+
+}
+    .section-content {
+      margin: 60px auto;
+      max-width: 1200px;
+      padding: 20px;
+      background: #f9f9f9;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(252, 87, 94, 0.08), 0 8px 32px rgba(247, 180, 44, 0.08);
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(8px);
+    }
+
+    .about-section {
+      max-width: 1000px;
+      margin: 80px auto 40px;
+      padding: 40px 20px;
+      line-height: 1.7;
+      box-shadow: 0 2px 8px rgba(252, 87, 94, 0.08), 0 8px 32px rgba(247, 180, 44, 0.08);
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(8px);
+    }
+     table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      text-align: center;
+      padding: 12px;
+      background: rgba(255,255,255,0.8);
+    }
+    th {
+      background-color: #4CAF50;
+      color: white;
+    }
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    caption {
+      caption-side: top;
+      font-size: 1.5em;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .about-section h2 {
+      text-align: center;
+      color: #1e1e1e;
+      margin-bottom: 20px;
+      background: linear-gradient(90deg, #fc575e, #f7b42c);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .about-section p, .about-section ul li {
+      font-size: 18px;
+      color: #444;
+      margin-bottom: 20px;
+      transition: color 0.3s;
+    }
+    .about-section ul li:hover {
+      color: #fc575e;
+    }
+
+    footer {
+      background-color: var(--footer-bg);
+      color: white;
+      text-align: center;
+     margin-top: auto;
+      padding: 20px;
+    }
+
+    footer img {
+      width: 60px;
+      margin: 10px;
+      border-radius: 8px;
+    }
+
+    @keyframes zoomInOut {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes heroFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Section fade-in for desktop */
+    @media (min-width: 769px) {
+      .section-content[data-aos], .about-section[data-aos] {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 0.8s, transform 0.8s;
+      }
+      .aos-animate.section-content[data-aos], .aos-animate.about-section[data-aos] {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none !important;
+      }
+      .menu-toggle {
+        display: flex !important;
+        cursor: pointer;
+        font-size: 24px;
+        color: black;
+      }
+      .dropdown-content {
+        position: static;
+        width: 100%;
+        transition: all;
+        
+        box-shadow: none;
+      }
+      .dropdown-content button:hover{
+        background-color: #fffdfde6;
+      }
+    }
+    header .logo img {
+      height: 40px;
+    }
+
+    header .logo h1 {
+      color:rgb(255, 0, 0);
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    @media (min-width: 769px) {
+      nav {
+        display: flex !important;
+      }
+      .menu-toggle {
+        display: none !important;
+      }
+      .navMenu .dropdown-content{
+        display: none !important;
+      }
+    }
+    @media (max-width: 768px) {
+  .navMenu .dropdown-content button {
+    color: #000 !important;
+    background: #fff !important;
+  }
+  .navMenu .dropdown-content {
+    background: #fff !important;
+  }
+}
+@media (max-width: 768px) {
+  footer > div {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    gap: 10px;
+    justify-content: flex-start;
+    align-items: center;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+  }
+  footer > div::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+  footer > div img {
+    min-width: 60px;
+    max-width: 90px;
+    height: auto;
+  }
+}
+</style>
+</head>
+<body>
+
+<header id="mainHeader">
+  <div class="logo">
+    <img src="WhatsApp Image 2025-07-07 at 15.43.31_d19d2746.jpg" alt="Logo">
+    <h1>Buildtech India Construction</h1>
+  </div>
+  <div class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="navMenu" tabindex="0">
+    <span></span><span></span><span></span>
+  </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <div class="dropdown">
+      <a href="#About" id="aboutDropdown" aria-haspopup="true" aria-expanded="false">About ▾</a>
+      <div class="dropdown-content" id="aboutDropdownContent">
+        <button id="btn-GST" type="button">GST</button>
+        <button id="btn-CoreTeam" type="button">Core Team</button>
+      </div>
+    </div>
+    <a href="index.html#services">Services</a>
+    <a href="Project.html">Projects</a>
+    <a href="careers.html">Careers</a>
+    <a href="Contact.html">Contact Us</a>
+  </nav>
+  <div class="navMenu" id="navMenu">
+    <a href="index.html">Home</a>
+    <div class="dropdown">
+      <a href="#About" id="aboutDropdownMobile" aria-haspopup="true" aria-expanded="false">About ▾</a>
+      <div class="dropdown-content" id="aboutDropdownContentMobile">
+        <button id="btn-GST-mobile" type="button">GST</button>
+        <button id="btn-CoreTeam-mobile" type="button">Core Team</button>
+      </div>
+    </div>
+    <a href="index.html#services">Services</a>
+    <a href="Project.html">Projects</a>
+    <a href="careers.html">Careers</a>
+    <a href="Contact.html">Contact</a>
+  </div>
+</header>
+
+<!-- Hero Section with Parallax Effect -->
+<section class="hero" id="aboutHero">
+  <div class="hero-content" id="heroContent">
+    <h1 id="heroTitle">About Us</h1>
+    <p id="heroSubtitle">Learn more about our company, GST details, and core team.</p>
+  </div>
+</section>
+
+<section id="GST" class="section-content" style="display: none;">
+ <table>
+    <caption>GST Details of 6 Indian States</caption>
+    <thead>
+      <tr>
+        <th>State Name</th>
+        <th>State Code</th>
+       <th> GSTIN</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>RAJASTHAN</td>
+        <td>08</td>
+       <td>08AGAPP8521H1ZC</td>
+      </tr>
+      <tr>
+        <td>UTTAR PRADESH</td>
+        <td>09</td>
+         <td>09AGAPP8521H1ZA</td>
+      </tr>
+      <tr>
+        <td>MADHYA PRADESH</td>
+        <td>23</td>
+         <td>23AGAPP8521H1ZK</td>
+        
+      </tr>
+      <tr>
+        <td>DELHI</td>
+        <td>07</td>
+         <td>07AGAPP8521H1ZE</td>
+      </tr>
+      <tr>
+        <td>BIHAR</td>
+        <td>10</td>
+         <td>10AGAPP8521H1ZR</td>
+        
+      </tr>
+      <tr>
+        <td>ODISHA</td>
+        <td>21</td>
+         <td>21AGAPP8521H1ZO</td>
+       
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="CoreTeam" class="section-content" style="display: none;">
+  <ol><li>no</li><li>yes</li><li>yes</li></ol>
+</section>
+
+<section id="About" class="about-section" data-aos="fade-up">
+  <h2>Who We Are</h2>
+  <p>BuildTech India Construction is a leading name in India’s construction and infrastructure development sector...</p>
+  <h2>Our Mission</h2>
+  <p>To build durable, sustainable, and innovative infrastructure...</p>
+  <h2>What We Offer</h2>
+  <ul>
+    <li>High-rise residential and commercial projects</li>
+    <li>Turnkey government infrastructure projects</li>
+    <li>Industrial warehouse construction</li>
+    <li>Urban development and smart city projects</li>
+    <li>Engineering consultancy & project management</li>
+  </ul>
+  <h2>Why Choose Us?</h2>
+  <ul>
+    <li>Timely project delivery with strict adherence to quality</li>
+    <li>ISO-certified processes and safety-first approach</li>
+    <li>Trusted by major government bodies & private clients</li>
+    <li>Team of experienced engineers, architects, and planners</li>
+    <li>Eco-conscious practices & energy-efficient design</li>
+  </ul>
+</section>
+
+<footer>
+   <div style="text-align: center; padding: 20px;">
+      <a href="http://www.hsccltd.co.in/" target="_blank"><img src="HS.png" alt="HSCC" style="width:70px; margin: 0 10px;"></a>
+      <a href="https://www.adani.com/" target="_blank"><img src="AD.png" alt="Adani" style="width:70px; margin: 0 10px;"></a>
+      <a href="https://nbccindia.in/" target="_blank"><img src="NB.png" alt="NBCC" style="width:70px; margin: 0 10px;"></a>
+      <a href="https://www.auda.org.in/" target="_blank"><img src="AO.png" alt="AUDA" style="width:70px; margin: 0 10px;"></a>
+      <a href="https://nmcg.nic.in/" target="_blank"><img src="NG.png" alt="NMCG" style="width:70px; margin: 0 10px;"></a>
+      <a href="https://lsg.urban.rajasthan.gov.in/" target="_blank"><img src="RA.png" alt="LSG Rajasthan" style="width:70px; margin: 0 10px;"></a>
+      <a href="https://www.gsrtc.in/" target="_blank"><img src="GU.png" alt="GSRTC" style="width:70px; margin: 0 10px;"></a>
+   <a href="https://sportsauthorityofindia.nic.in/"><img src="loader.JPG" alt="SAI" style="width:70px; margin: 0 10px;"></a>
+      
+      <a href="https://www.concorindia.co.in/" target="_blank"><img src="CO.png" alt="CONCOR" style="width:70px; margin: 0 10px;"></a>
+      <a href="https://epi.gov.in/" target="_blank"><img src="EP.png" alt="EPI" style="width:70px; margin: 0 10px;"></a>
+    </div>
+
+  <hr style="margin: 20px 0; border-color: #444;">
+  <p>© 2025 Buildtech India Construction. All rights reserved.</p>
+</footer>
+
+<!-- Back to Top Button -->
+<button id="backToTop" style="display:none;position:fixed;bottom:40px;right:40px;z-index:3000;background:linear-gradient(90deg,#fc575e,#f7b42c);color:#fff;border:none;border-radius:50%;width:50px;height:50px;font-size:28px;box-shadow:0 2px 8px rgba(252,87,94,0.18);cursor:pointer;transition:background 0.3s,transform 0.3s;">
+  ↑
+</button>
+
+
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+AOS.init();
+const header = document.getElementById("mainHeader");
+window.addEventListener("scroll", () => { header.classList.toggle("scrolled", window.scrollY > 50); });
+
+// Toggle mobile nav menu
+const menuToggle = document.getElementById('menuToggle');
+const navMenu = document.getElementById('navMenu');
+if (menuToggle && navMenu) {
+  menuToggle.addEventListener('click', function() {
+    const expanded = navMenu.classList.toggle('show');
+    menuToggle.setAttribute('aria-expanded', expanded);
+  });
+  document.addEventListener('click', function(e) {
+    if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+      navMenu.classList.remove('show');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+  menuToggle.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      menuToggle.click();
+    }
+  });
+}
+
+// Dropdown feature for switching GST/Core Team
+function showSection(section) {
+  document.getElementById('GST').style.display = section === 'GST' ? 'block' : 'none';
+  document.getElementById('CoreTeam').style.display = section === 'CoreTeam' ? 'block' : 'none';
+  document.getElementById('About').style.display = 'none';
+  // Set active button style
+  document.querySelectorAll('#btn-GST, #btn-CoreTeam, #btn-GST-mobile, #btn-CoreTeam-mobile').forEach(btn => btn.classList.remove('active-nav'));
+  if(section === 'GST') {
+    document.getElementById('btn-GST').classList.add('active-nav');
+    document.getElementById('btn-GST-mobile').classList.add('active-nav');
+    // Update hero content for GST
+    document.getElementById('heroTitle').textContent = "GST Details";
+    document.getElementById('heroSubtitle').textContent = "View GST information for 6 Indian states.";
+  } else if(section === 'CoreTeam') {
+    document.getElementById('btn-CoreTeam').classList.add('active-nav');
+    document.getElementById('btn-CoreTeam-mobile').classList.add('active-nav');
+    // Update hero content for Core Team
+    document.getElementById('heroTitle').textContent = "Core Team";
+    document.getElementById('heroSubtitle').textContent = "Meet the dedicated team behind BuildTech India Construction.";
+  }
+  // Scroll to section
+  document.getElementById(section).scrollIntoView({behavior: "smooth"});
+}
+
+// Show About section by default, hide others
+function showAboutSection() {
+  document.getElementById('GST').style.display = 'none';
+  document.getElementById('CoreTeam').style.display = 'none';
+  document.getElementById('About').style.display = 'block';
+  document.querySelectorAll('#btn-GST, #btn-CoreTeam, #btn-GST-mobile, #btn-CoreTeam-mobile').forEach(btn => btn.classList.remove('active-nav'));
+  // Reset hero content for About
+  document.getElementById('heroTitle').textContent = "About Us";
+  document.getElementById('heroSubtitle').textContent = "Learn more about our company, GST details, and core team.";
+}
+
+// Attach event listeners for dropdown buttons
+document.getElementById('btn-GST').onclick = () => showSection('GST');
+document.getElementById('btn-CoreTeam').onclick = () => showSection('CoreTeam');
+document.getElementById('btn-GST-mobile').onclick = () => showSection('GST');
+document.getElementById('btn-CoreTeam-mobile').onclick = () => showSection('CoreTeam');
+
+// Clicking "About" resets to About section
+document.getElementById('aboutDropdown').onclick = function(e) {
+  e.preventDefault();
+  showAboutSection();
+  document.getElementById('About').scrollIntoView({behavior: "smooth"});
+};
+document.getElementById('aboutDropdownMobile').onclick = function(e) {
+  e.preventDefault();
+  showAboutSection();
+  document.getElementById('About').scrollIntoView({behavior: "smooth"});
+};
+
+// On page load, show About section by default
+showAboutSection();
+const backToTopBtn = document.getElementById('backToTop');
+window.addEventListener('scroll', function() {
+  if (window.scrollY > 200) {
+    backToTopBtn.style.display = 'block';
+  } else {
+    backToTopBtn.style.display = 'none';
+  }
+});
+backToTopBtn.onclick = function() {
+  window.scrollTo({top:0,behavior:'smooth'});
+};
+</script>
+
+</body>
+</html>

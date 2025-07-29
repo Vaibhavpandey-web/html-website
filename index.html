@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Buildtech India Construction</title>
+
+  <!-- AOS CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+  <!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+  <style>/* For Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 10px;
+   background: linear-gradient(90deg, #161616, #2f2f2f, #000000); /* Track color */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #adbcf3; /* Thumb color */
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c0cfff; /* Thumb color on hover */
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #0037ff #222;
+}
+    :root {
+      --bg-color: #fffefe;
+      --text-color: #000000;
+      --card-bg: #f9f9f9;
+      --header-bg: #333;
+      --footer-bg: #222;
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 60px;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  box-shadow: 0px 0px 30px rgba(227, 228, 237, 0.37);
+  backdrop-filter: blur(30px);
+  border: 2px solid rgba(255,255,255,.18);
+  transition: background 0.4s ease, padding 0.3s ease;
+}
+
+    header {
+     background-color: #fff;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-radius: 0 0 18px 18px;
+      border: 1px solid rgba(255,255,255,0.18);
+      opacity: 0.98;
+      position: relative;
+      overflow: visible;
+    }
+
+   
+   
+    @keyframes headerGradient {
+      0% {
+        background-position: 0% 50%;
+      }
+      100% {
+        background-position: 100% 50%;
+      }
+    }
+
+    header.scrolled {
+      position: sticky;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 10px 40px;
+      backdrop-filter: blur(8px);
+    }
+
+    header .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    header .logo img {
+      height: 40px;
+    }
+
+    header .logo h1 {
+      color:red;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    nav {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      background: rgba(255,255,255,0.10);
+      box-shadow: 0 4px 24px 0 rgba(31, 38, 135, 0.10);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.18);
+      opacity: 0.97;
+      padding: 14px 18px;
+    }
+
+    nav a {
+      color: rgb(0, 0, 0);
+      text-decoration: none;
+      padding: 8px 14px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    nav a {
+      position: relative;
+      overflow: hidden;
+    }
+
+   nav a::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(270deg, #565656, #4f4a4a, #3f3f3f, #303030);
+  background-size: 400% 400%;
+  animation: navUnderlineAnim 3s ease-in-out infinite;
+  transform: scaleX(0);
+  transition: transform 0.3s;
+  border-radius: 2px;
+}
+
+    @keyframes navUnderlineAnim {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    nav a:hover::after, nav a:focus::after {
+      transform: scaleX(1);
+    }
+
+   nav a:hover, nav a:focus {
+      color: rgb(0, 0, 0);
+     
+    }
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      width: 32px;
+      height: 32px;
+      justify-content: center;
+      align-items: center;
+      z-index: 2100;
+      transition: filter 0.3s;
+    }
+    .menu-toggle span {
+      background: rgb(0, 30, 255);
+      height: 2px;
+      width: 25px;
+      margin: 3px 0;
+      border-radius: 2px;
+      display: block;
+      transition: all 0.4s cubic-bezier(.77,0,.18,1);
+    }
+.mobile-nav {
+  display: none;
+  flex-direction: column;
+  align-items: flex-start; /* Align all items to the left */
+  background: #151922;
+  position: fixed;
+  top: 0;
+  left: -320px;      /* Place off-canvas to the left */
+  right: auto;
+  height: 100vh;
+  min-height: 100vh;
+  width: 90vw;
+  max-width: 320px;
+  padding: 32px 16px 16px 16px;
+  border-radius: 0 8px 8px 0;
+  z-index: 3000;
+  transition: left 0.5s cubic-bezier(.77,0,.18,1), opacity 0.3s;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+  border: 1px solid rgba(255,255,255,0.18);
+  opacity: 0;
+  overflow-y: auto;
+  pointer-events: none;
+}
+
+.mobile-nav.show {
+  display: flex;
+  left: 0;           /* Slide in from the left */
+  opacity: 1;
+  animation: fadeLeftIn 0.5s cubic-bezier(.77,0,.18,1);
+  pointer-events: auto;
+}
+
+@keyframes fadeLeftIn {
+  from {
+    opacity: 0;
+    left: -80px;
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    left: 0;
+    filter: blur(0);
+  }
+}
+
+.mobile-nav a,
+.mobile-nav .nav-btn,
+.mobile-nav .dropdown-content button {
+  width: 100%;
+  text-align: left;
+  color: #fff !important;
+  font-size: 18px;
+  padding: 12px 8px;
+  margin: 0;
+  border-radius: 6px;
+  box-sizing: border-box;
+  background: none;
+  border: none;
+  font-weight: bold;
+  transition: background 0.2s, color 0.2s;
+}
+
+.mobile-nav .dropdown {
+  width: 100%;
+}
+
+.mobile-nav .dropdown-content {
+  position: static;
+  background: none;
+  box-shadow: none;
+  min-width: unset;
+  padding: 0;
+}
+
+.mobile-nav .dropdown-content button:hover,
+.mobile-nav .dropdown-content button.active-nav {
+  background: #E7E7E7;
+  color: #222 !important;
+}
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      animation: fadeIn 1.5s ease-in-out;
+      z-index: 1;
+    }
+
+  
+    
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      z-index: 1;
+    }.hero .swiper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index:0;
+}
+
+.hero .swiper-slide {
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+}
+
+
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 40px;
+      filter: brightness(250%);
+      text-align: center;
+    }
+
+    .btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: linear-gradient(90deg, #161616, #2f2f2f, #000000);
+      color: #fffbfb;
+      font-weight: bold;
+      text-shadow: 0 2px 8px #000, 0 1px 2px #000, 0 0px 2px #000;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(0,119,255,0.10);
+      position: relative;
+      overflow: hidden;
+      transition: background 0.4s, box-shadow 0.3s, transform 0.2s;
+      z-index: 1;
+    }
+
+    .btn::after {
+      content: "";
+      position: absolute;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.22);
+      border-radius: 30px;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .btn span, .btn-text {
+      position: relative;
+      z-index: 2;
+    }
+
+    .btn::before {
+      content: "";
+      position: absolute;
+      top: 0; left: -75%;
+      width: 50%; height: 100%;
+      background: linear-gradient(120deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.1) 100%);
+      transform: skewX(-25deg);
+      transition: left 0.5s;
+      z-index: 1;
+    }
+
+    .btn:hover::before {
+      left: 120%;
+      transition: left 0.5s;
+    }
+
+    .btn:hover, .btn:focus {
+      background: linear-gradient(90deg, #000000, #000000, #000000);
+      box-shadow: 0 8px 32px rgba(0,119,255,0.18);
+      transform: translateY(-2px) scale(1.04);
+    }
+    .btn:active {
+      transform: scale(0.98);
+    }
+    
+
+    .section {
+      max-width: 1200px;
+      padding: 60px 20px;
+      margin: auto;
+    }
+
+    #about h2 {
+      color: #004aad;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    #about h5 {
+      color: orangered;
+      font-size: 18px;
+      margin-bottom: 10px;
+      text-decoration: underline solid orangered;
+    }
+    #about{
+      font-size: larger;
+    }
+
+    .services, .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: justify;
+      width: 100%;
+      object-fit: cover;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 2px 8px rgba(252, 87, 94, 0.08), 0 8px 32px rgba(247, 180, 44, 0.08);
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(8px);
+      border: 1.5px solid transparent;
+      border-image: linear-gradient(90deg, #0077ff, #ff0096, #00ffc8, #0077ff) 1;
+      animation: cardGlow 4s linear infinite;
+    }
+
+    @keyframes cardGlow {
+      0% { border-image-slice: 1; border-image-source: linear-gradient(90deg, #0077ff, #ff0096, #00ffc8, #0077ff); }
+      50% { border-image-source: linear-gradient(270deg, #00ffc8, #ff0096, #0077ff, #00ffc8); }
+      100% { border-image-source: linear-gradient(90deg, #0077ff, #ff0096, #00ffc8, #0077ff); }
+    }
+
+    .card {
+      box-shadow: 0 2px 8px rgba(252, 87, 94, 0.08), 0 8px 32px rgba(247, 180, 44, 0.08);
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(8px);
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 32px rgba(252, 87, 94, 0.18), 0 2px 8px rgba(247, 180, 44, 0.18);
+      background: linear-gradient(120deg, #f7b42c22 0%, #fc575e22 100%);
+    }
+    
+    .box
+    {
+      display: flex;
+      width: 100%;
+      object-fit: cover;
+    }
+    .box.card{
+      width: 400%;
+      padding: 20px;
+      height: auto;
+    }
+    .box .card img{
+      width: 100%;
+      height: auto;
+      object-fit: fill;
+
+    }
+
+    .box .card img, .flow .card img {
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(252, 87, 94, 0.08), 0 8px 32px rgba(247, 180, 44, 0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .box .card img:hover, .flow .card img:hover {
+      transform: scale(1.07) rotate(-2deg);
+      box-shadow: 0 8px 32px rgba(252, 87, 94, 0.18), 0 2px 8px rgba(247, 180, 44, 0.18);
+    }
+    .flow{
+      display: flex;
+      width: 100%;
+      object-fit: cover;
+    }.flow.card{
+      width: 400%;
+      padding: 20px;
+      height: auto;
+    }
+    .flow .card img{
+      width: 100%;
+      height: auto;
+      object-fit: fill;
+
+    }
+    .flip-card {
+    background-color: transparent;
+    width: 100%;
+    max-width: 700px;
+    height: 300px;
+    perspective: 1000px;
+    margin: 40px auto;
+  }
+
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+
+  .flip-card:hover .flip-card-inner,
+  .flip-card:active .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+
+  .flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+  }
+
+    .flip-card-front, .flip-card-back {
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(8px);
+    }
+
+  .flip-card-front {
+    background: #fff;
+  }
+
+  .flip-card-back {
+    background: #333;
+    color: white;
+    transform: rotateY(180deg);
+  }
+
+  .flip-card-front img, .flip-card-back img {
+    width: 40%;
+    height: auto;
+    border-radius: 10px;
+    margin-left: auto;
+  }
+
+  .flip-card-front .text, .flip-card-back .text {
+    flex: 1;
+    padding: 0 20px;}
+  .portfolio-img-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  .portfolio-img-wrapper img {
+    width: 75%;
+    border-radius: 20px;
+    border: solid 4px;
+    display: block;
+    margin-bottom: 8px;
+    transition: width 0.3s, max-width 0.3s;
+  }
+  .portfolio-caption {
+    position: static;
+    margin-top: 4px;
+    background: rgba(0,0,0,0.65);
+    color: #fff;
+    padding: 6px 18px;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: bold;
+    pointer-events: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    text-align: center;
+    width: fit-content;
+    min-width: 80px;
+    max-width: 90%;
+  }
+    footer {
+      background-color: var(--footer-bg);
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    footer .partners img {
+      width: 60px;
+      margin: 10px;
+      transition: transform 0.3s;
+      border-radius: 10px;
+    }
+
+    footer .partners img:hover {
+      transform: scale(1.1);
+    }
+    @keyframes zoomInOut {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.hero {
+  animation: zoomInOut 20s ease-in-out infinite;
+}
+
+    @media (max-width: 768px) {
+    /* Increase work portfolio image size on mobile */
+    .box .card img,
+    .flow .card img {
+      width: 60px;
+      height: auto;
+      max-width: none;
+      object-fit: cover;}
+      nav {
+        display: none !important;
+      }
+      .menu-toggle {
+        display: flex !important;
+      }
+     
+      .hero-content {
+        font-size: 28px;
+      }
+      .mobile-nav {
+        right: 10px;
+        width: 90vw;
+        max-width: 320px;
+      }
+       header .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    footer .partners {
+      background-color: var(--footer-bg);
+      color: white;
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 10px;
+      text-align: center;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none; /* Firefox */
+    }
+    footer .partners::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera */
+    }
+
+    header .logo img {
+      height: 40px;
+    }
+
+    header .logo h1 {
+      color:rgb(255, 0, 0);
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 18px;
+      font-weight: bold;
+    } .portfolio-img-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  .portfolio-img-wrapper img {
+    width: 50%;
+    border-radius: 20px;
+    display: block;
+    margin-bottom: 8px;
+    transition: width 0.3s, max-width 0.3s;
+  }
+  .portfolio-caption {
+    position: static;
+    margin-top: 4px;
+    background: rgba(0,0,0,0.65);
+    color: #fff;
+    padding: 6px 18px;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: bold;
+    pointer-events: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    text-align: center;
+    width: fit-content;
+    min-width: 80px;
+    max-width: 90%;
+  }
+    @media (min-width: 769px) {
+      .portfolio-img-wrapper img {
+        max-width: 320px;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+    @media (max-width: 768px) {
+      .portfolio-img-wrapper img {
+        max-width: 100%;
+        width: 100%;
+      }
+    }
+    }
+    @media (min-width: 769px) {
+      nav {
+        display: flex !important;
+      }
+      .menu-toggle {
+        display: none !important;
+      }
+      .mobile-nav {
+        display: none !important;
+      }
+      .section[data-aos] {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 0.8s, transform 0.8s;
+      } #backToTop {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+        bottom: 16px;
+        right: 16px;
+      }
+      .aos-animate.section[data-aos] {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header id="mainHeader">
+  <div class="logo">
+    <img src="WhatsApp Image 2025-07-07 at 15.43.31_d19d2746.jpg" alt="Logo" />
+    <h1 style="color: red;">Buildtech India Construction</h1>
+    
+  </div> 
+  <div class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="mobileNav" tabindex="0">
+    <span></span><span></span><span></span>
+  </div>
+  <nav class="main-nav" aria-label="Main Navigation">
+    <ul style="display: flex; gap: 15px; align-items: center; justify-content: flex-end; list-style: none; margin: 0; padding: 0;">
+      <li><a href="#">Home</a></li>
+      <li><a href="About2.html">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="Project.html">Projects</a></li>
+      <li><a href="Careers.html">Careers</a></li>
+      <li><a href="Contact.html">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="mobile-nav" id="mobileNav" aria-label="Mobile Navigation">
+    <a href="#">Home</a>
+    <a href="About2.html">About</a>
+    <a href="#services">Services</a>
+    <a href="Project.html">Projects</a>
+    <a href="Careers.html">Careers</a>
+    <a href="Contact.html">Contact</a>
+  </div>
+</header>
+
+<section class="hero" style="filter: brightness(200%);">
+  <!-- Swiper background -->
+  <div class="swiper heroSwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" style="background-image:url('siswan.jpg') "></div>
+      <div class="swiper-slide" style="background-image: url('WhatsApp\ Image\ 2025-07-08\ at\ 00.18.23_25a0f9e2.jpg')"></div>
+      <div class="swiper-slide" style="background-image: url('WhatsApp\ Image\ 2025-07-08\ at\ 21.44.18_f11449f2.jpg')"></div>
+    </div>
+  </div>
+
+  <!-- Hero content on top -->
+  <div class="hero-content" data-aos="fade-up">
+    <h1 id="heroTitle" style="font-family: 'Times New Roman', Times, serif;">Building the Future with Precision</h1>
+    <p>Trusted partner in infrastructure and construction excellence.</p>
+    <button class="btn" onclick="window.location.href='About2.html'">Read More</button>
+  </div>
+</section>
+
+
+<section id="about" class="section" data-aos="fade-up">
+  <h5>Company Introduction</h5>
+  <h2>Buildtech India Construction</h2>
+  <p style="font-family: 'Times New Roman', Times, serif;font-size:larger;">Buildtech India Constructions is a leading name in India's infrastructure and construction landscape, known for its unwavering commitment to excellence, innovation, and reliability. Since our inception in 2002, we have evolved from a city-based realtor into a pan-India urban infrastructure company, delivering cutting-edge construction solutions across multiple sectors. We specialize in the execution of residential, commercial, industrial, and public sector projects, with a portfolio that includes hospitals, medical colleges, government facilities, and high-rise developments.
+
+What sets us apart is our client-centric approach, backed by a team of skilled professionals, industry-best practices, and a passion for quality. At BuildTech India, we do more than build structures — we engineer environments that empower people, support businesses, and shape modern India.</p>
+</section>
+
+<section id="services" class="section" data-aos="fade-up">
+  <h2 style="color: blue;">Our Services</h2>
+  <div class="services">
+    <div class="card" data-aos="fade-right">
+      <h3>Group Housing</h3>
+      <p>Design and construction of integrated housing projects.</p>
+    </div>
+    <div class="card" data-aos="fade-right">
+      <h3>Medical Infrastructure</h3>
+      <p>Hospitals, medical colleges, and health centers built to precision.</p>
+    </div>
+    <div class="card" data-aos="fade-left">
+      <h3>Industrial Development</h3>
+      <p>Modern and efficient industrial parks and factories.</p>
+    </div>
+    <div class="card" data-aos="fade-left">
+      <h3>Urban Infrastructure</h3>
+      <p>Smart city development, drainage, and public works.</p>
+    </div>  
+    <div class="card" data-aos="fade-left">
+      <h3>Private White Label Construction</h3>
+      <p>Design-to-delivery, Customized branding implementation, B2B collaboration with complete confidentiality.</p>
+    </div>
+    <div class="card" data-aos="fade-left">
+      <h3>Development of Warehouse </h3>
+      <p>Pre-engineered building (PEB) structures,Cold storage warehouses,Logistics & distribution centers.</p>
+    </div>
+  </div>
+</section>
+<section class="section-content" id="ceo-card" data-aos="fade-up">
+  <h2 style="text-align: center;">Meet Our CEO</h2>
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <!-- Front Side -->
+      <div class="flip-card-front">
+        <div class="text">
+          <h3>Mr. Anil pandey</h3>
+          <p>Founder & CEO of Buildtech India Construction</p>
+          <p>Leading the organization with vision, experience, and unwavering dedication.</p>
+        </div>
+        <img src="" alt="CEO Image">
+      </div>
+      <!-- Back Side -->
+      <div class="flip-card-back">
+        <div class="text">
+          <h3>Vision & Leadership</h3>
+<p style="text-align: justify;">
+    Mr. Anil Pandey brings over 30+ years of industry expertise, having successfully led Buildtech India Construction through large-scale infrastructure, residential, and government projects. A strategic thinker and hands-on leader, he emphasizes innovation, quality, and ethical engineering practices.
+  </p>
+          </div>
+        <img src="" alt="CEO Image">
+      </div>
+    </div>
+  </div>
+</section>
+<h2 style="color: blue ;text-align:center;margin-bottom:20px;font-size:xx-large;font-weight:bold;">Work Portfolio</h2>
+
+<div class="swiper workPortfolioSwiper" style="padding-bottom:40px;">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">
+      <div class="portfolio-img-wrapper">
+        <img src="AL.PNG" alt="AL">
+        <div class="portfolio-caption">Cost: ₹2.5 Cr</div>
+      </div>
+    </div>
+    <div class="swiper-slide">
+      <div class="portfolio-img-wrapper">
+        <img src="Pali.PNG" alt="Pali">
+        <div class="portfolio-caption">Cost: ₹1.8 Cr</div>
+      </div>
+    </div>
+    <div class="swiper-slide">
+      <div class="portfolio-img-wrapper">
+        <img src="LIG.PNG" alt="LIG">
+        <div class="portfolio-caption">Cost: ₹3.2 Cr</div>
+      </div>
+    </div>
+    <div class="swiper-slide">
+      <div class="portfolio-img-wrapper">
+        <img src="EWS1.PNG" alt="EWS">
+        <div class="portfolio-caption">Cost: ₹2.1 Cr</div>
+      </div>
+    </div>
+    <div class="swiper-slide">
+      <div class="portfolio-img-wrapper">
+        <img src="WhatsApp Image 2025-07-08 at 00.18.23_25a0f9e2.jpg" >
+        <div class="portfolio-caption">Cost: ₹4.0 Cr</div>
+      </div>
+    </div>
+    <div class="swiper-slide">
+      <div class="portfolio-img-wrapper">
+        <img src="WhatsApp Image 2025-07-08 at 21.44.18_f11449f2.jpg" >
+        <div class="portfolio-caption">Cost: ₹2.7 Cr</div>
+      </div>
+    </div>
+    <div class="swiper-slide">
+      <div class="portfolio-img-wrapper">
+        <img src="Neemrana.PNG" alt="Neemrana">
+        <div class="portfolio-caption">Cost: ₹3.8 Cr</div>
+      </div>
+    </div>
+    <div class="swiper-slide">
+      <div class="portfolio-img-wrapper">
+        <img src="BHI.PNG" alt="BHI">
+        <div class="portfolio-caption">Cost: ₹1.5 Cr</div>
+      </div>
+    </div>
+  </div>
+  <div class="swiper-pagination"></div>
+</div>
+
+<section class="section" data-aos="fade-up" id="careers">
+  <h2>Work With Us</h2>
+  <p>We’re hiring engineers, architects, and more. Join our growing team!</p>
+  <button class="btn" onclick="window.location.href='Careers.html'">View Openings</button>
+</section>
+
+<footer>
+  <div class="partners">
+    <a href="http://www.hsccltd.co.in/" target="_blank"><img src="HS.png" alt="HSCC"></a>
+    <a href="https://www.adani.com/" target="_blank"><img src="AD.png" alt="Adani"></a>
+    <a href="https://nbccindia.in/" target="_blank"><img src="NB.png" alt="NBCC"></a>
+    <a href="https://www.auda.org.in/" target="_blank"><img src="AO.png" alt="AUDA"></a>
+    <a href="https://nmcg.nic.in/" target="_blank"><img src="NG.png" alt="NMCG"></a>
+    <a href="https://lsg.urban.rajasthan.gov.in/" target="_blank"><img src="RA.png" alt="Rajasthan LSG"></a>
+    <a href="https://www.gsrtc.in/" target="_blank"><img src="GU.png" alt="GSRTC"></a>
+   <a href="https://sportsauthorityofindia.nic.in/"><img src="loader.JPG" alt="SAI"></a>
+    <a href="https://www.concorindia.co.in/" target="_blank"><img src="CO.png" alt="CONCOR"></a>
+    <a href="https://epi.gov.in/" target="_blank"><img src="EP.png" alt="EPI"></a>
+  </div>
+     <hr style="margin: 20px 0; border-color: #444;">
+  
+  <p>© 2025 Buildtech India Construction. All rights reserved.</p>
+</footer>
+
+<!-- Floating Action Contact Button -->
+<button id="contactFab" title="Contact Us" style="position:fixed;bottom:110px;right:40px;z-index:3100;background:linear-gradient(135deg,#000000,#000000,#000000);color:#fff;border:none;border-radius:50%;width:56px;height:56px;font-size:28px;box-shadow:0 2px 16px rgba(0,119,255,0.18);cursor:pointer;transition:background 0.3s,transform 0.3s;display:flex;align-items:center;justify-content:center;">
+  <span style="font-size:30px;">✉️</span>
+</button>
+
+<!-- Back to Top Button -->
+<button id="backToTop" style="display:none;position:fixed;bottom:40px;right:40px;z-index:3000;background:linear-gradient(90deg,#fc575e,#f7b42c);color:#fff;border:none;border-radius:50%;width:50px;height:50px;font-size:28px;box-shadow:0 2px 8px rgba(252,87,94,0.18);cursor:pointer;transition:background 0.3s,transform 0.3s;">
+  ↑
+</button>
+
+<!-- AOS Script -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+// Menu toggle logic with animation
+const menuToggle = document.getElementById('menuToggle');
+const mobileNav = document.getElementById('mobileNav');
+function closeMobileNav() {
+  mobileNav.classList.remove('show');
+  menuToggle.setAttribute('aria-expanded', 'false');
+  menuToggle.classList.remove('open');
+}
+function openMobileNav() {
+  mobileNav.classList.add('show');
+  menuToggle.setAttribute('aria-expanded', 'true');
+  menuToggle.classList.add('open');
+}
+function toggleMenu() {
+  if (mobileNav.classList.contains('show')) {
+    closeMobileNav();
+  } else {
+    openMobileNav();
+  }
+}
+if (menuToggle && mobileNav) {
+  menuToggle.addEventListener('click', function(e) {
+    e.stopPropagation();
+    toggleMenu();
+  });
+  // Close menu when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!mobileNav.contains(e.target) && !menuToggle.contains(e.target)) {
+      closeMobileNav();
+    }
+  });
+  // Close menu when clicking a link
+  mobileNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMobileNav);
+  });
+  // Allow keyboard toggle
+  menuToggle.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggleMenu();
+    }
+  });
+}
+// Back to Top Button logic
+const backToTopBtn = document.getElementById('backToTop');
+window.addEventListener('scroll', function() {
+  if (window.scrollY > 200) {
+    backToTopBtn.style.display = 'block';
+  } else {
+    backToTopBtn.style.display = 'none';
+  }
+});
+backToTopBtn.onclick = function() {
+  window.scrollTo({top:0,behavior:'smooth'});
+};
+// Section fade-in on scroll (AOS handles this, but add fallback for browsers without AOS)
+document.addEventListener('DOMContentLoaded', function() {
+  if (!window.AOS) {
+    const sections = document.querySelectorAll('.section[data-aos]');
+    const onScroll = () => {
+      sections.forEach(sec => {
+        const rect = sec.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 60) {
+          sec.classList.add('aos-animate');
+        }
+      });
+    };
+    window.addEventListener('scroll', onScroll);
+    onScroll();
+  }
+});
+// Floating Action Contact Button
+const contactFab = document.getElementById('contactFab');
+if (contactFab) {
+  contactFab.addEventListener('click', function() {
+    window.location.href = 'Contact.html';
+  });
+}
+</script>
+  <!-- Sticky Navbar on Scroll -->
+<script>
+  const header = document.getElementById("mainHeader");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
+    }
+  });
+</script>
+<script>
+  const heroSwiper = new Swiper('.heroSwiper', {
+    loop: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false
+    },
+    effect: 'fade',
+    fadeEffect: {
+      crossFade: true
+    }
+  });
+</script>
+
+<script>
+  AOS.init();
+</script>
+
+<script>
+// Swiper for Work Portfolio
+const workPortfolioSwiper = new Swiper('.workPortfolioSwiper', {
+  loop: true,
+  slidesPerView: 1,
+  spaceBetween: 20,
+  centeredSlides: true,
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false
+  },
+  pagination: {
+    el: '.workPortfolioSwiper .swiper-pagination',
+    clickable: true,
+  },
+  breakpoints: {
+    640: {
+      slidesPerView: 2,
+    },
+    1024: {
+      slidesPerView: 3,
+    }
+  }
+});
+</script>
+</body>
+</html>
